@@ -1,30 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 
 
 
 function Form (props) {
-    const { submit } = props;
+   const { formValues, handleSubmit, handleChange } = props;
 
+    // const [formValues, setFormValues] = useState({name:"",email:"",role:""});
+
+
+    // const handleChange  = (event) =>{
+    //   setFormValues({...formValues,[event.target.name]:event.target.value})
+  
+    // }
 return(
 
 
 
     <div>
-    <form onSubmit =  {submit}>
-      <label htmlFor="name">
+    <form onSubmit ={handleSubmit}>
+      <label >
         Name
-        <input type="text" name="Name" />
+        <input 
+        type="text" 
+        name="Name" 
+        value = {formValues.Name}
+        onChange ={handleChange}
+        />
       </label>
-      <label htmlFor="name">
-        Role
-        <input type="text" name="Role" />
-      </label>
-      <label htmlFor="email">
+      <label >
         Email
-        <input type="email" name="Email" />
+        <input 
+        type="email" 
+        name="Email" 
+        value = {formValues.Email}
+        onChange ={handleChange}
+        />
       </label>
+      <label >
+        Role
+        <input 
+        type="text" 
+        name="Role" 
+        value = {formValues.Role}
+        onChange ={handleChange}
+        />
+      </label>
+
       <button>Submit</button>
     </form>
   </div>
